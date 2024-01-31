@@ -18,8 +18,8 @@
           data: $('form').serialize(),
           dataType: 'json',
           success: function(response) {
-            // Redirect to VERIFICATION.html upon successful submission
-            redirectToVERIFICATION();
+            // Redirect to JOB.html upon successful submission
+            redirectToJOB();
           },
           error: function(xhr, status, error) {
             console.log(xhr.responseText);
@@ -29,8 +29,8 @@
       });
     });
 
-    function redirectToVERIFICATION() {
-      window.location.href = 'VERIFICATION.html';
+    function redirectToJOB() {
+      window.location.href = 'JOB.html';
     }
   </script>
 </head>
